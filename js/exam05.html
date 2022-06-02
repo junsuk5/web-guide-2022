@@ -37,18 +37,10 @@
 
   <script>
     function changeStyle($el) {
-      console.log($el);
-
       $divs = document.querySelectorAll('div');
+      let divList = [...$divs];
 
-      for (let i = 0; i < $divs.length; i++) {
-        $divs[i].className = $divs[i] === $el ? 'selected-box' : 'box';
-        // if ($divs[i] === $el) {
-        //   $divs[i].className = 'selected-box';
-        // } else {
-        //   $divs[i].className = 'box';
-        // }
-      }
+      divList.map(div => div.className = div === $el ? 'selected-box' : 'box');
     }
 
   </script>
