@@ -45,6 +45,8 @@
     const CHARACTER_WIDTH = 100;
 
     $('body').keydown(function (event) {
+      console.log(event.key);
+
       let top = Number(character.css('top').replace('px', ''));
       let bottom = top + CHARACTER_HEIGHT;
       let left = Number(character.css('left').replace('px', ''));
