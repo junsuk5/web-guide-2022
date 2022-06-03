@@ -1,6 +1,11 @@
+body {
+  overflow-x: hidden;
+}
+
 .container {
   border: 1px black solid;
-  height: 90vh;
+  width: 1200px;
+  height: 600px;
   position: relative;
 }
 
@@ -25,4 +30,22 @@
   bottom: 70px;
   transform: scaleX(-1);
   display: none;
+}
+
+.background {
+  position: absolute;
+  background-image: url('../assets/bg.png');
+  width: 200%;
+  height: 100%;
+  animation: slide 30s linear infinite;
+}
+
+@keyframes slide {
+  from {
+    transform: translate(0, 0);
+  }
+
+  to {
+    transform: translate(-1960px, 0);
+  }
 }
