@@ -16,11 +16,13 @@
   <div class="container">
     <img id="mario" src="assets/mario.gif" alt="mario">
     <img id="goomba" src="assets/goomba.gif" alt="goomba">
+    <div id="score">점수 : 0</div>
   </div>
 
   <script>
     let isJumping = false;
     let isGameOver = false;
+    let score = 0;
 
     function marioDown() {
       if (isGameOver) {
@@ -50,6 +52,11 @@
       let respawnTime = getRandomInt(1000, 2000); // 1~2초 사이
 
       $('#goomba').animate({ left: '-120px' }, speed, function () {
+        if (isGameOver == false) {
+          score += 100;
+          $('#score').text(`점수 : ${score}`);
+        }
+
         // 왼쪽 끝까지 가면 초기 위치로 이동
         $('#goomba').css('right', '-150px').css('left', '');
 
