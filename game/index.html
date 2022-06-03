@@ -15,10 +15,30 @@
 <body>
   <div class="container">
     <img id="mario" src="assets/mario.gif" alt="mario">
+    <img id="goomba" src="assets/goomba.gif" alt="goomba">
   </div>
 
   <script>
     let isJumping = false;
+
+    function getRandomInt(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min)) + min; //최댓값은 제외, 최솟값은 포함
+    }
+
+    function goombaStart() {
+      let speed = getRandomInt(1000, 2000);   // 1~2초 사이
+      let respawnTime = getRandomInt(1000, 2000); // 1~2초 사이
+
+      $('#goomba').animate({ left: '-120px' }, speed, function () {
+        // 왼쪽 끝까지 가면 초기 위치로 이동
+        $('#goomba').css('right', '-150px').css('left', '');
+
+        // 1초 후에 다시 출발
+        setTimeout(goombaStart, respawnTime);
+      });
+    }
 
     function jump() {
       // 연타 방지
@@ -42,6 +62,9 @@
             break;
         }
       });
+
+      // 굼바 출발
+      goombaStart();
     });
   </script>
 </body>
