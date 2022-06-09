@@ -15,7 +15,7 @@ public class Word {
 
     // i 번째 글자가 모음인지 // a, i, u, e, o
     public boolean isVowel(int i) {
-        return letters.substring(i, i + 1).equals("a");
+        return "aiueo".contains(letters.substring(i, i + 1));
     }
 
 }
