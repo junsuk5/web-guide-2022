@@ -18,4 +18,9 @@ public class Word {
         return "aiueo".contains(letters.substring(i, i + 1));
     }
 
+    // i 번째 글자가 자음인지 // a, i, u, e, o 제외한 나머지
+    public boolean isConsonant(int i) {
+      return !isVowel(i);
+    }
+
 }
